@@ -7,7 +7,6 @@ from sqlalchemy import (
     DateTime,
     Numeric,
     Integer,
-    BigInteger,
     Text,
 )
 
@@ -64,7 +63,7 @@ class ServiceModel:
         if price:
             sel = sel.where(tbl_services.c.price == price)
         if os:
-            sel = sel.where(tbl_services.c.os == os)
+            sel = sel.where(tbl_services.c.os_platform == os)
         rp = self.db.execute(sel)
         return rp.all()
 
